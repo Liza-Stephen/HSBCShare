@@ -1,0 +1,51 @@
+Problem 1
+
+Create Employee class with attributes empId, name, salary  and constructor , setters and getters and toString() method
+Create Main calss with main() method
+
+In the main method accept Employee data in Line format with fields separated by  comma. 
+
+To start with, prompt the use for number of employees. Based on the number entered, create Employee array
+Use a loop to accept the text lines, split the line and create Employee object and add to the array
+
+After the above is completed, display the Employee data from the array line by line
+
+
+Problem 2
+
+ a. Create a customer.txt file with following customers data 
+      100:Sukumar:Hyderabad
+	  200:Niranjan:Delhi
+	  300:Anjani:Chandigarh
+	  400:Anirban:Kolkotta
+	  500:Annadurai:Chennai
+	  600:Girish Pillai:Kochi
+	  
+ b. Create a Customer class  with fields customerId, name, city  and constructor , setters and getters
+ 
+ c. Class CustomerException  with appropriate constructor and methods(you decide)
+
+ d. Create a class DataHelper with following
+     i. instance variable  -> private Customer  customers[]
+	 ii. constructor with String argument (which is full path for customer.txt)
+         In the constructor open the file read all lines, convert into Customer object and add to the array
+		    If the file is not found throw  CustomerException 
+			     (you can throw this exception from catch block of FileNotFoundException)
+	iii. method   ->  public Customer getCustomer(int custId)
+	     This method will take customer Id , search the array and return the Customer object if found
+		   If not found return null
+		   You can use for loop to check all the customers
+		   
+ e. In the main() method 
+       create object of DataHelper passing the filename with fullpath
+	   Start a infinte loop  
+	      in the loop prompt for customer Id
+		  If invalid number is entered (NumberFormatException), display 'Enter valid Number' and repeat the loop		  
+		  If zero is enered break from the loop
+		  Otherwise, get the customer calling getCustomer of DataHelper passing the id
+		  If object is received  display the following response
+		                   Customer whose name is <name> lives in <city>
+		  If null is received display the following response
+                           Customer with the given number does not exist		  
+		   
+	 
