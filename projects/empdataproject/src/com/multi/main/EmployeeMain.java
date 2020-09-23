@@ -1,5 +1,7 @@
 package com.multi.main;
 
+import java.util.List;
+
 import com.multi.domain.Employee;
 import com.multi.exceptions.EmployeeNotFoundException;
 import com.multi.service.EmployeeService;
@@ -10,7 +12,7 @@ public class EmployeeMain {
 
 		EmployeeService service = new EmployeeService();
 
-		Employee all[] = service.getAllEmployees();
+		List<Employee> all = service.getAllEmployees();
 
 		for (Employee x : all) {
 			System.out.println(x);

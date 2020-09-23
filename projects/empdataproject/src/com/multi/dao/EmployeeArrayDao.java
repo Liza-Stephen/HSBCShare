@@ -1,23 +1,20 @@
 package com.multi.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.multi.domain.Employee;
 import com.multi.exceptions.EmployeeNotFoundException;
-
 
 /* 
  * DAO implemented using normal array.
  * create method not implemented because we cannot add new element in array
  * deletion implemented by setting the element to null
  */
-public class EmployeeArrayDao implements EmployeeDao {
+class EmployeeArrayDao implements EmployeeDao {
 
-	Employee[] employees = { 
-			new Employee(100, "Suresh", 26000), 
-			new Employee(200, "Aloknath", 18000),
-			new Employee(300, "Banerjee", 12000), 
-			new Employee(400,"John",9000), 
-			new Employee(500, "Deepa", 6000)
-		};
+	Employee[] employees = { new Employee(100, "Suresh", 26000), new Employee(200, "Aloknath", 18000),
+			new Employee(300, "Banerjee", 12000), new Employee(400, "John", 9000), new Employee(500, "Deepa", 6000) };
 
 	@Override
 	public void create(Employee e) {
@@ -26,9 +23,9 @@ public class EmployeeArrayDao implements EmployeeDao {
 
 	@Override
 	public Employee getEmployee(int id) {
- 
+
 		for (Employee x : employees) {
-			if (x != null && x.getEmpId() == id)  // we have to check for deleted employees  with null value
+			if (x != null && x.getEmpId() == id) // we have to check for deleted employees with null value
 				return x;
 		}
 
@@ -36,19 +33,16 @@ public class EmployeeArrayDao implements EmployeeDao {
 	}
 
 	@Override
-	public Employee[] getAllEmployees() {
-// this is new array to be returned
-// we should not return data array reference to outside
-		Employee[] x = new Employee[employees.length];
+	public List<Employee> getAllEmployees() {
+		ArrayList<Employee> list = new ArrayList<Employee>();
 
 		for (int i = 0; i < employees.length; i++) {
-			if (employees[i] == null)
-				x[i] = null;
-			else
-				x[i] = new Employee(employees[i].getEmpId(), employees[i].getName(), employees[i].getSalary());
+			if (employees[i] != null)
+
+				list.add(employees[i]);
 		}
 
-		return x;
+		return list;
 	}
 
 	@Override
@@ -82,7 +76,7 @@ public class EmployeeArrayDao implements EmployeeDao {
 			}
 
 		}
-  // position remains -1 if employee not found
+		// position remains -1 if employee not found
 		if (position == -1)
 			throw new EmployeeNotFoundException(id);
 		employees[position] = null;
