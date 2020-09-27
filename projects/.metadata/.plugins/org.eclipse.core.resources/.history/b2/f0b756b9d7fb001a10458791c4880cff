@@ -1,0 +1,19 @@
+package synchronizeproject;
+
+public class DataStore {
+	
+	int nums[]=new int[50];
+	
+	public void store(int pos, int val) {
+		nums[pos]=val;
+	}
+	
+	public int getNumber(int pos) {
+		return nums[pos];
+	}
+	
+	public void init(int pos) {
+		nums[pos]=0;
+	}
+
+}

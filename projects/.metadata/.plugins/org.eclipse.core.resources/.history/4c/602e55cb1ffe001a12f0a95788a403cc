@@ -1,0 +1,5 @@
+package com.hsbc.jdbc.main;
+
+public class JdbcPstMain {
+
+}

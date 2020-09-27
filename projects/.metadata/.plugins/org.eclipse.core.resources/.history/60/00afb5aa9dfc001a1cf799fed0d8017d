@@ -1,0 +1,23 @@
+package com.hsbc.collections.main;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class MapMain {
+
+	public static void main(String[] args) {
+		
+		Map<Integer,String> m=new HashMap<>();
+		
+		m.put(1,"Delhi");
+		m.put(2,"Hyderabad");
+		m.put(3,"Chennai");
+		m.put(4,"Delhi");
+		m.put(3,"Kolkotta");
+		
+		System.out.println(m.size());
+		
+
+	}
+
+}

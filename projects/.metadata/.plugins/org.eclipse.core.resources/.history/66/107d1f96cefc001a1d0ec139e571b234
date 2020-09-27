@@ -1,0 +1,10 @@
+package com.multi.dao;
+
+public class EmpDaofactory {
+
+	
+	public static EmployeeDao getDao() {
+		return new EmployeeMapDao();
+		
+	}
+}

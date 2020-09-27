@@ -1,0 +1,18 @@
+package com.hsbc.jdbc.main;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class JdbcMain {
+
+	public static void main(String[] args) {
+		
+		Connection con=DriverManager.getConnection("jdbc:derby:e:/derbydb/trgdb");
+		
+		System.out.println("Connection successfully created");
+		
+		// SQL operations
+
+	}
+
+}

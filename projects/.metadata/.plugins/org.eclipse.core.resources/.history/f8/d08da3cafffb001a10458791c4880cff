@@ -1,0 +1,35 @@
+package com.multi.main;
+
+import com.multi.domain.Employee;
+import com.multi.exceptions.EmployeeNotFoundException;
+import com.multi.service.EmployeeService;
+
+public class EmployeeMain {
+
+	public static void main(String[] args) {
+
+		EmployeeService service = new EmployeeService();
+
+		Employee all[] = service.getAllEmployees();
+
+		for (Employee x : all) {
+			System.out.println(x);
+		}
+
+		try {
+			service.delete(200);
+			System.out.println("Object deleted");
+		} catch (EmployeeNotFoundException e) {
+			e.showMessage();
+		}
+		
+		Employee e1=service.getOneEmployee(300);
+		
+		if(e1==null)
+			System.out.println("Employee not found");
+		else
+			System.out.println(e1);
+
+	}
+
+}

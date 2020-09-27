@@ -1,0 +1,42 @@
+package com.hsbc.jdbc.main;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class JdbcMain {
+
+	public static void main(String[] args) {
+
+		try {
+			Connection con = DriverManager.getConnection("jdbc:derby:e:/derbydb/trgdb");
+
+			System.out.println("Connection successfully created");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("select * from emp");
+			
+			while(rs.next()) {
+				
+				int eid=rs.getInt(1);
+				String name=rs.getString("NAME"); // getString(2)
+				float salary = rs.getFloat("SALARY");
+			
+				
+				//System.out.println(eid +"\t"+name+"\t"+salary);
+			}
+			con.close();
+			
+			
+			
+
+
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+
+	}
+
+}

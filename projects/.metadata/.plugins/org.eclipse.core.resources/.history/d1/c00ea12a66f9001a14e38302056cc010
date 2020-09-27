@@ -1,0 +1,28 @@
+package com.hsbc.hr.main;
+
+import com.hsbc.hr.Employee;
+import com.hsbc.hr.exceptions.SalaryException;
+
+public class EmployeeMain {
+
+	public static void main(String args[]) {
+		Employee e1 = null;
+		Employee e2;
+		try {
+			e1 = new Employee(200, "Ramana", 25000);
+			e2=new Employee(200,"",30000);
+			if(e1.equals(e2))
+				System.out.println("Same objects");
+		
+			e1.setSalary(26000);
+			e1.showDetails();
+
+		} catch (SalaryException se) {
+			System.out.println(se.getMessage());
+			System.out.println(se.MINIMUM_SALARY);
+			
+			se.printStackTrace();
+		}
+
+	}
+}

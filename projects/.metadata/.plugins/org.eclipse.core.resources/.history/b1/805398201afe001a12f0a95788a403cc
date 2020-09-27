@@ -1,0 +1,45 @@
+package com.hsbc.jdbc.main;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import com.multi.domain.Employee;
+
+public class JdbcMain {
+
+	public static void main(String[] args) {
+
+		try {
+			Connection con = DriverManager.getConnection("jdbc:derby:e:/derbydb/trgdb");
+
+			System.out.println("Connection successfully created");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("select name,dob from emp where salary> 6000 order by dob desc");
+
+			ArrayList<Employee> list = new ArrayList<>();
+			while (rs.next()) {
+
+				// int eid=rs.getInt(1);
+				String name = rs.getString(1); // getString(2)
+				Date d=rs.getDate(2);
+				System.out.println(name +"   "+d);
+
+			}
+			con.close();
+
+			for (Employee e : list) {
+				System.out.println(e);
+			}
+
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+
+	}
+
+}

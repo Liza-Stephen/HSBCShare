@@ -1,0 +1,10 @@
+package com.multi.main;
+public class EmployeeMain {
+
+	public static void main(String[] args) {
+	
+		
+
+	}
+
+}

@@ -1,0 +1,19 @@
+package synchronizeproject;
+
+public class Thread1 extends Thread {
+	
+	private DataStore store;
+
+	public Thread1(DataStore store) {
+		super();
+		this.store = store;
+	}
+	
+	
+	public void run() {
+		
+		
+	}
+	
+
+}

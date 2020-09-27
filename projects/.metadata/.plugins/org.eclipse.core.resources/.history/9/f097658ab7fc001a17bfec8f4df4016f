@@ -1,0 +1,5 @@
+package com.multi.exceptions;
+
+public class EmployeeAlreadyExistsException {
+
+}

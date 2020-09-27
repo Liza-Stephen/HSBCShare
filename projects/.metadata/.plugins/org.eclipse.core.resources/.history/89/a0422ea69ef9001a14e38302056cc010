@@ -1,0 +1,20 @@
+package com.hr;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
+public class Main {
+
+	public static void main(String[] args) throws FileNotFoundException, IOException {
+
+		Department d = new Department(10, "Sales");
+
+		Employee e = new Employee(100, "Kishore", 5000, d,new Date(1996,4,25));
+
+		System.out.println(e);
+
+	}
+
+}

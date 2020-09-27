@@ -1,0 +1,40 @@
+package javaioproject;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class IOMain {
+
+	public static void main(String[] args) throws IOException {
+		try {
+			FileInputStream  fis = new FileInputStream("d:/pictures/horse.jpg");
+			FileOutputStream fos = new FileOutputStream("d:/newpictures/myhorse.jpg");
+		
+			int x=0;
+			
+			while(true) {
+				
+				x=fis.read();
+				if(x==-1)
+					break;
+				
+				fos.write(x);
+				
+			}
+			
+			fis.close();
+			fos.close();
+			
+			System.out.println("File copy completed");
+			
+			
+		} catch (FileNotFoundException e) {
+			
+			e.printStackTrace();
+		}
+
+	}
+
+}

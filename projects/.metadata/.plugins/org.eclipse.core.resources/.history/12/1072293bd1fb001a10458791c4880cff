@@ -1,0 +1,19 @@
+package synchronizeproject;
+
+public class Mythread extends Thread {
+	
+	private DataStore store;
+
+	public Mythread(DataStore store) {
+		super();
+		this.store = store;
+	}
+	
+	
+	public void run() {
+		
+		
+	}
+	
+
+}

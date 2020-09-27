@@ -1,0 +1,18 @@
+package com.hsbc.collections.main;
+
+import java.util.ArrayList;
+
+public class ListMain {
+
+	public static void main(String[] args) {
+		
+		ArrayList lst = new ArrayList();
+		lst.add("Chennai");
+		lst.add("Hyderabad");
+		lst.add("Chennai");
+		
+		System.out.println(lst.size());
+
+	}
+
+}

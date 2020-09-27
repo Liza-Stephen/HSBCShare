@@ -1,0 +1,15 @@
+package javaioproject;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+import com.hr.Employee;
+
+public class IOMain {
+
+	public static void main(String[] args) throws IOException {
+		
+	}
+
+}
