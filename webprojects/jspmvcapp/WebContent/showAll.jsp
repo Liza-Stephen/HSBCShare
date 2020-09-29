@@ -9,20 +9,25 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h2>List of Employees</h2>
+	<table border='1'>
+		<tr>
+			<th>Emp Id</th>
+			<th>Name</th>
+			<th>Salary</th>
 
-	<c:choose>
+		</tr>
 
-		<c:when test="${message == null}">
-             Employee Id: ${empData.empId} <br>
-  		     Name: ${empData.name} <br>
-  		     Salary: ${empData.salary}
-         </c:when>
+		<c:forEach var="x" items="${emps}">
+			<tr>
+				<td>${x.empId}</td>
+				<td>${x.name}</td>
+				<td>${x.salary}</td>
+			</tr>
 
+		</c:forEach>
 
-		<c:otherwise>
-              ${message}
-         </c:otherwise>
-	</c:choose>
+	</table>
 
 </body>
 </html>

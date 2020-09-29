@@ -1,6 +1,8 @@
 package com.hsbc.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.hsbc.domain.Employee;
@@ -19,6 +21,14 @@ public class EmployeeDao {
 	
 	public static Employee getEmployee(int id) {
 		return data.get(id);
+	}
+	
+	public static List<Employee> getAllEmployees(){
+		List<Employee> empList=new ArrayList<>();
+		
+		empList.addAll(data.values());
+		
+		return empList;
 	}
 
 }
