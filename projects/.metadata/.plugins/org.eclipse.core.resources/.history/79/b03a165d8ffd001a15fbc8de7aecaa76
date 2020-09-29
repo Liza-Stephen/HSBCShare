@@ -1,9 +1,0 @@
-package com.multi.dao;
-
-public class EmpDaoFactory {
-	
-	public static EmployeeDao  getEmployeeDao() {
-	   return new EmployeeArrayDao();	
-	}
-
-}
