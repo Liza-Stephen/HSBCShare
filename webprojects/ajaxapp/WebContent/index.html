@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script>
+	http = new XMLHttpRequest();
+
+	function process() {
+
+		empid = document.getElementById('eid').value
+
+		if (empid == "") {
+			http.onreadystatechange = displayAll
+			http.open("GET", "getEmp", true);
+		} else {
+			http.onreadystatechange = displayData
+			http.open("GET", "getEmp?id=" + empid, true);
+		}
+
+		http.send(null);
+
+	}
+
+	function displayData() {
+
+		if (http.readyState == 4) {
+
+			text = "";
+			if (http.status == 200) {
+				res = http.responseText;
+
+				emp = JSON.parse(res); // convert JSON data to Javascript object
+
+				text = "Employee Id: " + emp.empid + "<br>";
+				text = text + "Name: " + emp.name + "<br>";
+				text = text + "Salary: " + emp.salary;
+
+			} else {
+				text = "Employee Not Found"
+			}
+			document.getElementById("display").innerHTML = text;
+		}
+
+	}
+
+	function displayAll() {
+		if (http.readyState == 4) {
+			text = "";
+			emps = JSON.parse(http.responseText);
+			text = "<table border='1'>";
+
+			text += "<tr><th>Emp ID</th><th>Name</th><th>Salary</th></tr>";
+			for (i = 0; i < emps.length; i++) {
+				text = text + "<tr>";
+				text += "<td>" + emps[i].empid + "</td>";
+				text += "<td>" + emps[i].name + "</td>";
+				text += "<td>" + emps[i].salary + "</td>";
+				text += "</tr>";
+			}
+			text = text + "</table>";
+			document.getElementById("display").innerHTML = text;
+		}
+	}
+</script>
+
+</head>
+<body>
+	<h2>Ajax Example</h2>
+
+	<input type='text' id='eid' />
+
+	<button onclick='process()'>Get Data</button>
+
+	<br>
+	<br>
+
+	<div id='display'>Display Area</div>
+
+
+
+</body>
+</html>
